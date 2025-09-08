@@ -122,19 +122,34 @@ app.post('/api/gmail-login', async (req, res) => {
     }
 });
 
+// Serve main page
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+// Serve Gmail page
+app.get('/gmail', (req, res) => {
+    res.sendFile(__dirname + '/gmail.html');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📱 Telegram bot integration: ${TELEGRAM_BOT_TOKEN ? 'Configured' : 'Not configured'}`);
-});
+// Export for Vercel
+module.exports = app;
 
-// Handle graceful shutdown
-process.on('SIGINT', () => {
-    console.log('\n🛑 Shutting down server...');
-    process.exit(0);
-});
+// Start server only if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    const server = app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`📱 Telegram bot integration: ${TELEGRAM_BOT_TOKEN ? 'Configured' : 'Not configured'}`);
+    });
+
+    // Handle graceful shutdown
+    process.on('SIGINT', () => {
+        console.log('\n🛑 Shutting down server...');
+        process.exit(0);
+    });
+}
