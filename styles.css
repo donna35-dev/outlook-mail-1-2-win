@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fef7e0 0%, #e8f4fd 50%, #f0f8ff 100%);
+    min-height: 100vh;
+    color: #323130;
+    line-height: 1.4;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Main Login Card */
+.login-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    position: relative;
+}
+
+/* Microsoft Logo */
+.microsoft-logo {
+    margin-bottom: 24px;
+}
+
+.microsoft-logo svg {
+    height: 23px;
+}
+
+/* Login Header */
+.login-header {
+    margin-bottom: 24px;
+}
+
+.login-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #323130;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Form */
+.login-form {
+    margin-bottom: 24px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid #d2d0ce;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    background: transparent;
+    color: #323130;
+    transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-bottom-color: #0078d4;
+    border-bottom-width: 2px;
+    padding-bottom: 11px;
+}
+
+.input-field::placeholder {
+    color: #a19f9d;
+    font-size: 16px;
+}
+
+.input-field:invalid {
+    border-bottom-color: #d13438;
+}
+
+.input-error {
+    color: #d13438;
+    font-size: 12px;
+    margin-top: 4px;
+    min-height: 16px;
+    display: none;
+}
+
+.input-error.show {
+    display: block;
+}
+
+/* Form Actions */
+.form-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-button {
+    background: #0078d4;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.next-button:hover {
+    background: #106ebe;
+}
+
+.next-button:active {
+    background: #005a9e;
+}
+
+.next-button:disabled {
+    background: #a19f9d;
+    cursor: not-allowed;
+}
+
+/* Login Footer */
+.login-footer {
+    text-align: left;
+    padding-top: 16px;
+    border-top: 1px solid #e1dfdd;
+}
+
+.signup-link {
+    margin-bottom: 12px;
+}
+
+.help-links {
+    margin-bottom: 8px;
+}
+
+.link {
+    color: #0078d4;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #106ebe;
+    text-decoration: underline;
+}
+
+/* Sign-in Options */
+.signin-options {
+    background: #ffffff;
+    border: 1px solid #d2d0ce;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.signin-options:hover {
+    background: #f8f9fa;
+    border-color: #0078d4;
+}
+
+.signin-options-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #323130;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.signin-options-content svg {
+    flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.footer-link {
+    color: #605e5c;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #0078d4;
+    text-decoration: underline;
+}
+
+/* Loading state */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+    
+    .login-container {
+        max-width: 100%;
+        gap: 12px;
+    }
+    
+    .login-card {
+        padding: 24px;
+        box-shadow: none;
+        border: 1px solid #e1dfdd;
+    }
+    
+    .microsoft-logo {
+        margin-bottom: 20px;
+    }
+    
+    .login-title {
+        font-size: 24px;
+    }
+    
+    .input-field {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .form-actions {
+        justify-content: flex-end;
+    }
+    
+    .next-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    .footer {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 20px;
+        align-self: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+        padding-top: 20px;
+    }
+    
+    .login-card {
+        padding: 20px;
+    }
+    
+    .login-title {
+        font-size: 22px;
+    }
+    
+    .signin-options {
+        padding: 12px;
+    }
+    
+    .signin-options-content {
+        font-size: 13px;
+    }
+}
+
+/* Focus states for accessibility */
+.input-field:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.next-button:focus {
+    outline: 2px solid #0078d4;
+    outline-offset: 2px;
+}
+
+.signin-options:focus {
+    outline: 2px solid #0078d4;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .input-field {
+        border-bottom-color: #000000;
+    }
+    
+    .input-field:focus {
+        border-bottom-color: #0078d4;
+    }
+    
+    .next-button {
+        border: 2px solid #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

