@@ -153,7 +153,7 @@ export default function Home() {
                     </div>
                     <div>
                         <a href="#" className="text-blue-600 hover:text-blue-500 text-sm">
-                            Can't access your account?
+                            Can&apos;t access your account?
                         </a>
                     </div>
                     <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">

