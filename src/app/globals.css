@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -22,5 +23,113 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Microsoft Outlook specific styles */
+.input-microsoft {
+  border: none;
+  border-bottom: 2px solid #d1d5db;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #000000;
+  transition: border-color 0.2s ease;
+}
+
+.input-microsoft:focus {
+  outline: none;
+  border-bottom-color: #0078d4;
+  color: #000000;
+}
+
+.input-microsoft::placeholder {
+  color: #8a8886;
+}
+
+/* Microsoft button styles */
+.btn-microsoft {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-microsoft:hover {
+  background-color: #106ebe;
+}
+
+.btn-microsoft:disabled {
+  background-color: #a19f9d;
+  cursor: not-allowed;
+}
+
+/* Google specific styles */
+.input-google {
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #000000;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-google:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+  color: #000000;
+}
+
+.input-google::placeholder {
+  color: #5f6368;
+}
+
+/* Google button styles */
+.btn-google {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-google:hover {
+  background-color: #1557b0;
+}
+
+.btn-google:disabled {
+  background-color: #f8f9fa;
+  color: #5f6368;
+  cursor: not-allowed;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .mobile-padding {
+    padding: 16px;
+  }
+  
+  .mobile-text {
+    font-size: 14px;
+  }
+  
+  .mobile-input {
+    padding: 16px 0;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+  .desktop-container {
+    max-width: 448px;
+  }
 }
